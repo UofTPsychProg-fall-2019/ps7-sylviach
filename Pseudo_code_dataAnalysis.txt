@@ -1,0 +1,69 @@
+Part 1. Explanation of the data
+
+Built upon partner choice theories, the current study tried to examine the underlying evaluative mechanisms that support selective prosocial behaviour. Specifically, we tested how different types of characteristics influence individuals' selective helping behaviour. Therefore, the IVs and DVS are as below:
+
+IVs: type of characteristic (3 levels: prosocial, social, non-social general), type of question (3 levels: prosocial, social, non-social general)
+
+DV: choice between two characters described; confidence rating of the choice on a 5-point scale
+
+Part 2. Data analysis procedure
+
+- Coding: For the forced-choice question, choosing the positive character will be coded as 1, and choosing the negative character coded as 0. Respondings on confidence-rating questions will be coded following the 5-point Likert-scale such that a higher score means higher confidence. 
+
+- Analysis of forced-choice questions: An omnibus analysis of variance (ANOVA) will be conducted to determine the effects of type of characteristic and type of question on the choice. Then if there is any effect, post-hoc t-tests will be performed to determine the differences.
+- Analyses of Confidence-rating questions: An omnibus analysis of variance (ANOVA) will be conducted to determine the effects of type of characteristic and type of question on the confidence rating. Then if there is any effect,  post-hoc t-tests will be performed to determine the differences.
+
+Part 3. Pseudocode
+
+1. import required libraries
+
+   library(tidyverse)
+
+   library(ggpubr)
+
+   library(psych)
+
+   library(rstatix)
+
+2. read in the data file
+
+   data = read_csv("helper_halo.csv")
+
+3. collapse the data from sub-categories to the main category
+
+   helpful + generous--> prosocial
+
+   considerate + gregarious --> social
+
+   intelligent + attractive --> general
+
+4. perform repeated-measure ANOVAs on forced-choice questions and confidence-rating questions
+
+   aovFC <- anova_test (characteristics, questions)
+
+   aovCR <- anova_test (characteristic, questions)
+
+5. post-hoc tests
+
+   one.way <-FC 
+
+   one.way <- CR
+
+   pwc <- FC
+
+   pwc <- CR
+
+6. print out the results
+
+   summary(aovFC)
+
+   summary(aovCR)
+
+   summary(one.way)
+
+   summary(pwc)
+
+7. visualize the results
+
+   box plots with p-values
+
